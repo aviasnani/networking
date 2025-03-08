@@ -32,12 +32,15 @@ jobs:
 
       - name: Terraform init
         run: terraform init
+        working-directory: ./terraform
 
       - name: Planning terraform script
         run: terraform plan
+        working-directory: ./terraform
 
       - name: Running terrafrom script
         run: terraform apply -auto-approve
+        working-directory: ./terraform
 
   ansible:
     name: "Ansible"
