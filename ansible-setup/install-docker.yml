@@ -39,7 +39,7 @@
       command: docker pull gitkeeper05/avinash:latest
 
     - name: Run the Docker container
-      command: docker run -d --name random -p 5000:5000 gitkeeper05/avinash:latest
+      command: docker run -d --name random2 -p 5000:5000 gitkeeper05/avinash:latest
 
     - name: Configure Nginx reverse proxy
       copy:
