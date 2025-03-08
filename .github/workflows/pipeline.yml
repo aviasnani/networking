@@ -34,8 +34,11 @@ jobs:
         run: terraform init
         working-directory: ./terraform
 
+      - name: print ssh public key
+        run: echo ${{ secrets.AWS_SSH_PUBLIC_KEY }}
+
       - name: Planning terraform script
-        run: terraform plan -out=tfplan -var="ssh_public_key=${{ secrets.AWS_SSH_PUBLIC_KEY }}"
+        run: terraform plan -var="ssh_public_key=${{ secrets.AWS_SSH_PUBLIC_KEY }}"
         working-directory: ./terraform
 
       - name: Running terrafrom script
@@ -49,6 +52,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Set up SSH key for Ansible
+        run: |
+          mkdir -p ~/.ssh  # Create the directory if it doesn't exist
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa  # Map the GitHub secret to the id_rsa file
+          chmod 400 ~/.ssh/id_rsa  # Secure the private key file
 
       - name: Run Ansible Playbook
         run: ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ansible-setup/inventory.ini ansible-setup/install-docker.yml
