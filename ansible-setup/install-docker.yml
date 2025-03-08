@@ -35,6 +35,9 @@
         group: docker
         append: yes
 
+    - name: stop and remove the existing container
+      command: docker rm -f random2 || true
+
     - name: Pull the Docker image
       command: docker pull gitkeeper05/avinash:latest
 
