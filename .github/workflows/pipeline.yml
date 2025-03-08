@@ -35,7 +35,7 @@ jobs:
         working-directory: ./terraform
 
       - name: Planning terraform script
-        run: terraform plan
+        run: terraform plan -out=tfplan -var="ssh_public_key=${{ secrets.AWS_SSH_PUBLIC_KEY }}"
         working-directory: ./terraform
 
       - name: Running terrafrom script
