@@ -51,4 +51,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run Ansible Playbook
-        run: ansible-playbook -i ansible-setup/inventory.ini ansible-setup/install-docker.yml
+        run: ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ansible-setup/inventory.ini ansible-setup/install-docker.yml
