@@ -69,7 +69,7 @@ jobs:
           password: ${{ secrets.P_DOCKER_PASSWORD }} # GitHub Secret for Docker Hub password or token
 
       - name: Docker Build
-        run: docker buildx build --platform linux/amd64,linux/arm64 -t ${{ secrets.P_DOCKER_USERNAME }}/avinash:latest --push .
+        run: docker buildx build --platform linux/amd64,linux/arm64 -t ${{ secrets.P_DOCKER_USERNAME }}/avinash:latest --push ./app/dockerfile
 
       - name: Run Ansible Playbook
         run: ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ansible-setup/inventory.ini ansible-setup/install-docker.yml
