@@ -1,4 +1,4 @@
-Automated container deployment and Administration in the cloud
+# Automated container deployment and Administration in the cloud
 
 This project automates the docker containerization process by pushing and pulling docker images from a public docker repo into EC2 instance AWS.
 
