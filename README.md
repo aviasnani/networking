@@ -4,7 +4,7 @@ This project automates the docker containerization process by pushing and pullin
 
 Code being pushed to the main GitHub repo branch > Docker image being built and pushed > Public Repository > Image being pulled by Ansible > EC2.
 
-# Project Features:
+## Project Features:
 
 1.  Infrastructure as Code (IaC) using Terraform
 2.  Docker containerized application.
@@ -35,7 +35,7 @@ Following is the file system (5 directories and 14 files) of the project:
 
 ```
 
-# Technologies and Tools used:
+## Technologies and Tools used:
 
 1.  Terraform: for infratructure provisioning, launching EC2 instance, and configuring security groups and other networking components.
 
@@ -44,9 +44,9 @@ Following is the file system (5 directories and 14 files) of the project:
 4.  Docker: Used for Containerizing apps and deploying on EC2 instance.
 5.  GitHub Actions: Used for creating CI/CD pipelines that automates the whole process.
 
-# Setup and Installation
+## Setup and Installation
 
-## Prerequisites
+### Prerequisites
 
 Install the following tools:
 
@@ -56,7 +56,7 @@ Install the following tools:
 4.  Create an AWS account with proper permissions for IAM user.
 5.  Docker
 
-# Steps to Deploy:
+## Steps to Deploy:
 
 1.  Clone the repository
 
@@ -95,7 +95,7 @@ docker login
 
 7.  Configure ansible playbooks and CI/CD pipeline for building, pushing and pulling docker image.
 
-# Future Improvements
+## Future Improvements
 
 1.  Add auto-scaling to EC2 instance.
 2.  Add S3 bucket for durable storage logs such as backups, logs or static assets.
@@ -103,13 +103,13 @@ docker login
 
 Feel Free to clone and use my repository :D
 
-# Contributors:
+## Contributors:
 
 1.  Avinash Asnani
 2.  Pushpak Patil
 3.  Aditya Jadhav
 4.  Gargee Kadam
 
-# License and Acknowledgement
+## License and Acknowledgement
 
 This project has no licensing and was created for educational purposes as an assignment for Networks and Systems Administration module (B9IS121).
