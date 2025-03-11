@@ -62,7 +62,7 @@ Install the following tools:
 
 ```bash
 git clone https://github.com/aviasnani/networking.git
-cd your-repo-name
+cd networking
 ```
 
 2.  Set up AWS credentials by running the following command:
