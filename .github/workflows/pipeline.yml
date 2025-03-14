@@ -33,7 +33,7 @@ jobs:
       - name: Restore Terraform State from Cache
         uses: actions/cache@v3
         with:
-          path: ./terraform/terraform.tfstate
+          path: /terraform/terraform.tfstate
           key: terraform-state-${{ github.ref }}
           restore-keys: |
             terraform-state-
@@ -41,6 +41,9 @@ jobs:
       - name: Terraform init
         run: terraform init
         working-directory: ./terraform
+
+      - name: ssh testing
+        run: echo ${{ secrets.AWS_SSH_PUBLIC_KEY }}
 
       - name: Planning terraform script
         run: terraform plan -var="ssh_public_key=${{ secrets.AWS_SSH_PUBLIC_KEY }}"
