@@ -42,8 +42,15 @@ jobs:
         run: terraform init
         working-directory: ./terraform
 
-      - name: ssh testing
-        run: echo ${{ secrets.AWS_SSH_PUBLIC_KEY }}
+      - name: Debug SSH public key
+        run: |
+          if [ -z "${{ secrets.AWS_SSH_PUBLIC_KEY }}" ]; then
+            echo "SSH public key is not set!"
+          else
+            echo "SSH public key is set."
+            echo "${{ secrets.AWS_SSH_PUBLIC_KEY }}"
+          fi
+        shell: bash
 
       - name: Planning terraform script
         run: terraform plan -var="ssh_public_key=${{ secrets.AWS_SSH_PUBLIC_KEY }}"
