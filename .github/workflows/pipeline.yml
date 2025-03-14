@@ -44,20 +44,20 @@ jobs:
 
       - name: Debug SSH public key
         run: |
-          if [ -z "${{ secrets.AWS_SSH_PUB_KEY }}" ]; then
+          if [ -z "${{ secrets.SSH_PUB_KEY }}" ]; then
             echo "SSH public key is not set!"
           else
             echo "SSH public key is set."
-            echo "${{ secrets.AWS_SSH_PUB_KEY }}"
+            echo "${{ secrets.SSH_PUB_KEY }}"
           fi
         shell: bash
 
       - name: Planning terraform script
-        run: terraform plan -var="ssh_public_key=${{ secrets.AWS_SSH_PUB_KEY }}"
+        run: terraform plan -var="ssh_public_key=${{ secrets.SSH_PUB_KEY }}"
         working-directory: ./terraform
 
       - name: Running terrafrom script
-        run: terraform apply -auto-approve -var="ssh_public_key=${{ secrets.AWS_SSH_PUB_KEY }}"
+        run: terraform apply -auto-approve -var="ssh_public_key=${{ secrets.SSH_PUB_KEY }}"
         working-directory: ./terraform
 
   ansible:
