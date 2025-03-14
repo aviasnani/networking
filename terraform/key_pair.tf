@@ -4,7 +4,7 @@ variable "ssh_public_key" {
 }
 
 
-resource "aws_key_pair" "hello_key" {
-  key_name   = "hellothisismykey"  
+resource "aws_key_pair" "random_key" {
+  key_name   = "random_key"  
   public_key = var.ssh_public_key  
 }
